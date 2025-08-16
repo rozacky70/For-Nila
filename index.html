@@ -1,0 +1,102 @@
+<!DOCTYPE html><html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>For Nila</title>
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: linear-gradient(135deg, #a1c4fd, #c2e9fb);
+      font-family: 'Poppins', sans-serif;
+      color: #333;
+      overflow-y: auto;
+    }
+    .container {
+      max-width: 700px;
+      width: 90%;
+      margin: 30px auto;
+      padding: 20px;
+      background: rgba(255, 255, 255, 0.9);
+      border-radius: 20px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    }
+    h2 {
+      margin-bottom: 15px;
+      color: #2c3e50;
+      text-align: center;
+    }
+    .typing {
+      font-size: 16px;
+      line-height: 1.6;
+      white-space: pre-line;
+      overflow: hidden;
+      border-right: 3px solid #2c3e50;
+      animation: blink 0.7s step-end infinite;
+      text-align: left;
+    }
+    @keyframes blink {
+      from, to { border-color: transparent }
+      50% { border-color: #2c3e50 }
+    }
+    .panda {
+      position: fixed;
+      bottom: -10px;
+      font-size: 24px;
+      animation: floatUp 5s linear infinite;
+    }
+    @keyframes floatUp {
+      0% { transform: translateY(0) scale(1); opacity: 1; }
+      100% { transform: translateY(-100vh) scale(1.5); opacity: 0; }
+    }
+    .from {
+      margin-top: 20px;
+      font-weight: bold;
+      text-align: right;
+      color: #2c3e50;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>To: Nila Farhana</h2>
+    <div class="typing" id="text"></div>
+    <div class="from">— From: Rzcky</div>
+  </div>  <script>
+    const message = `Aku pengen cerita sesuatu yang mungkin selama ini cuma aku simpan sendiri. Aku harap kamu nggak salah paham dengan maksudku, karena aku bukan mau bikin hubungan kita jadi aneh atau maksa kamu buat ngerasain hal yang sama.
+
+Jujur, aku kagum sama kamu. Dari cara kamu bersikap, cara kamu ngobrol sama orang lain, sampai hal-hal kecil yang mungkin kamu sendiri nggak sadar, semuanya selalu bikin aku ngerasa nyaman dan tenang. Aku nggak tahu sejak kapan mulai merasakannya, tapi yang jelas setiap kali aku lihat atau dengar tentang kamu, ada rasa yang beda, rasa yang bikin aku ingin menjaga dan menghargaimu.
+
+Mungkin kita memang belum pernah benar-benar komunikasi secara langsung, tapi entah kenapa aku tetap bisa merasakan ketulusan dan sisi baik dalam dirimu. Hal itu cukup untuk bikin aku sadar kalau rasa kagumku ini bukan sekadar lewat.
+
+Aku bilang ini bukan karena aku mau lebih atau ngajak kamu pacaran. Aku cuma pengin jujur sama diriku sendiri, dan sama kamu. Karena nyimpen semua ini sendirian rasanya berat, seakan ada sesuatu yang nggak tersampaikan. Aku nggak mau nanti menyesal karena nggak pernah jujur soal perasaanku.
+
+Kalaupun setelah ini kamu tetap anggap aku sama seperti sebelumnya, aku akan sangat menghargai itu. Aku hanya ingin kamu tahu, bahwa ada seseorang di sini yang tulus mengagumimu, mendoakanmu dalam diam, dan selalu berharap yang terbaik buatmu.
+
+Itu aja yang pengen aku sampaikan. Nggak lebih, nggak kurang. Semoga kamu bisa menerimanya dengan baik, tanpa merasa terbebani. Yang terpenting, aku ingin kita tetap bisa berjalan seperti biasa.`;
+
+    let i = 0;
+    function typeWriter() {
+      if (i < message.length) {
+        document.getElementById("text").innerHTML += message.charAt(i);
+        i++;
+        setTimeout(typeWriter, 40);
+      }
+    }
+    typeWriter();
+
+    function createPanda() {
+      const panda = document.createElement("div");
+      panda.classList.add("panda");
+      panda.innerHTML = "🐼";
+      panda.style.left = Math.random() * 100 + "vw";
+      panda.style.animationDuration = (3 + Math.random() * 2) + "s";
+      document.body.appendChild(panda);
+      setTimeout(() => panda.remove(), 5000);
+    }
+    setInterval(createPanda, 600);
+  </script></body>
+</html>
